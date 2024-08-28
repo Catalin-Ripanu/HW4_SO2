@@ -1,6 +1,8 @@
 # HW4_SO2
 
-A software RAID module that uses a logical block device that will read and write data from two physical devices, ensuring the consistency and synchronization of data from the two physical devices. The type of RAID implemented will be similar to a RAID 1.
+A software RAID module that uses a logical block device that will read and write data from two physical devices, ensuring the consistency and synchronization of data from the two physical devices.
+
+The type of RAID implemented will be similar to a RAID 1.
 
 This kernel module implements the RAID software functionality. Software RAID [1] provides an abstraction between the logical device and the physical devices. The implementation will use RAID scheme 1 [2].
 
@@ -20,7 +22,7 @@ where C1, C2, C3 are the values CRC sectors sector1, sector2, sector3. The CRC a
 
 As a seed for CRC 0(zero) was used.
 
-Implementation details:
+## Implementation details:
 
 - The logical device will be accessed as a block device with the major SSR_MAJOR and minor SSR_FIRST_MINOR under the name /dev/ssr (via the macro LOGICAL_DISK_NAME)
 
@@ -35,9 +37,6 @@ Implementation details:
 - Used bio_endio() to signal the completion of processing a bio structure
 
 - Useful macro definitions can be found in the assignment support header
-
-- Our recommendations are not mandatory (any solution that meets the requirements of the assignment is accepted)
-
 
 [1]: https://en.wikipedia.org/wiki/RAID#Software-based_RAID
 [2]: https://en.wikipedia.org/wiki/RAID#Standard_levels
